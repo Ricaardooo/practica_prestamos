@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="equipo_laptop_01" model="prestamo.equipo">
+            <field name="name">Laptop Dell</field>
+            <field name="codigo">EQ-001</field>
+            <field name="categoria">laptop</field>
+            <field name="estado">disponible</field>
+        </record>
+
+        <record id="equipo_proyector_01" model="prestamo.equipo">
+            <field name="name">Proyector Epson</field>
+            <field name="codigo">EQ-002</field>
+            <field name="categoria">proyector</field>
+            <field name="estado">disponible</field>
+        </record>
+
+        <record id="equipo_audio_01" model="prestamo.equipo">
+            <field name="name">Equipo de sonido</field>
+            <field name="codigo">EQ-003</field>
+            <field name="categoria">audio</field>
+            <field name="estado">disponible</field>
+        </record>
+
+        <record id="equipo_laboratorio_01" model="prestamo.equipo">
+            <field name="name">Equipo de laboratorio</field>
+            <field name="codigo">EQ-004</field>
+            <field name="categoria">laboratorio</field>
+            <field name="estado">disponible</field>
+        </record>
+
+    </data>
+</odoo>
