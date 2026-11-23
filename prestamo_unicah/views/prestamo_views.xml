@@ -1,6 +1,7 @@
 
 <odoo>
 
+    <!-- Vista de lista -->
     <record id="prestamo_prestamo_view_list" model="ir.ui.view">
         <field name="name">prestamo.prestamo.list</field>
         <field name="model">prestamo.prestamo</field>
@@ -15,6 +16,7 @@
         </field>
     </record>
 
+    <!-- Vista de formulario -->
     <record id="prestamo_prestamo_view_form" model="ir.ui.view">
         <field name="name">prestamo.prestamo.form</field>
         <field name="model">prestamo.prestamo</field>
@@ -68,12 +70,44 @@
         </field>
     </record>
 
+    <!-- Vista de búsqueda -->
+    <record id="prestamo_prestamo_view_search" model="ir.ui.view">
+        <field name="name">prestamo.prestamo.search</field>
+        <field name="model">prestamo.prestamo</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+
+                <filter name="activos"
+                        string="Activos"
+                        domain="[('state', 'in', ['prestado', 'atrasado'])]"/>
+
+                <filter name="atrasados"
+                        string="Atrasados"
+                        domain="[('state', '=', 'atrasado')]"/>
+
+                <group>
+                    <filter name="group_by_estado"
+                            string="Agrupar por estado"
+                            context="{'group_by': 'state'}"/>
+
+                    <filter name="group_by_solicitante"
+                            string="Agrupar por solicitante"
+                            context="{'group_by': 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Acción de préstamos -->
     <record id="prestamo_prestamo_action" model="ir.actions.act_window">
         <field name="name">Préstamos</field>
         <field name="res_model">prestamo.prestamo</field>
         <field name="view_mode">list,form</field>
     </record>
 
+    <!-- Menú de préstamos -->
     <menuitem id="prestamo_prestamo_menu"
               name="Préstamos"
               parent="menu_prestamo_root"
@@ -81,5 +115,6 @@
               sequence="20"/>
 
 </odoo>
+
 
 
